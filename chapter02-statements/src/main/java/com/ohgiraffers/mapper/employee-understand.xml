@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+
+    <entry key ="selectEmpByName">
+
+        SELECT
+        E.EMP_ID,
+        E.EMP_NAME,
+        SALARY
+        FROM EMPLOYEE E
+        ORDER BY SALARY DESC
+        LIMIT 1;
+
+    </entry>
+
+    <entry key ="selectEmpByName1">
+
+        SELECT
+        E.EMP_ID,
+        E.EMP_NAME,
+        EMAIL,
+        PHONE,
+        J.JOB_NAME
+        FROM EMPLOYEE E
+        JOIN JOB J ON E.JOB_CODE = J.JOB_CODE
+        WHERE E.EMP_ID = ?;
+
+    </entry>
+
+</properties>
