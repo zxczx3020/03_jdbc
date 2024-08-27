@@ -28,7 +28,7 @@ public class Application01 {
             rset = pstmt.executeQuery();
 
             while(rset.next()){
-                System.out.println("사번 : "+rset.getString(1) + "   이름 :  " + rset.getString(2) + "   이메일 :  " + rset.getString(3) + "   핸드폰 :  " + rset.getString(4) + "   직급 :  " + rset.getString(5));
+                System.out.println("사번 : "+rset.getString(1) + "\n이름 : " + rset.getString(2) + "\n이메일 : " + rset.getString(3) + "\n핸드폰 : " + rset.getString(4) + "\n직급 : " + rset.getString(5));
             }
 
         } catch (IOException e) {
