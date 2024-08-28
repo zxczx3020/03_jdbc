@@ -21,7 +21,7 @@ public class Application {
             switch(choice){
                 case 1 : menuController.findMaxCode(); break;
                 case 2 : menuController.findMenu(); break;
-                case 3 : break;
+                case 3 : menuController.insertMenu(); break;
                 case 9 : break;
                 default :
                     System.out.println("잘못된 입력입니다.");

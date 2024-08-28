@@ -1,5 +1,7 @@
 package com.ohgiraffers.section02.dao;
 
+import com.ohgiraffers.section02.dto.MenuDTO;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.*;
@@ -82,5 +84,34 @@ public class MenuDAO {
 
 
     }
+
+    public int insertMenu(Connection con, MenuDTO menuDTO) {
+        PreparedStatement pstmt = null;
+        int result = 0;
+
+        String query = prop.getProperty("insertMenu");
+
+        try {
+            pstmt = con.prepareStatement(query);
+            pstmt.setString(1, menuDTO.getName());
+            pstmt.setInt(2, menuDTO.getPrice());
+            pstmt.setInt(3, menuDTO.getCategoryCode());
+            pstmt.setString(4, menuDTO.getStatus());
+
+            result = pstmt.executeUpdate();
+
+
+
+        } catch (SQLException e) {
+            System.out.println("잘못된 값이 입력됨...");
+        }finally{
+            close(con);
+            close(pstmt);
+        }
+        return result;
+
+
+    }
+
 
 }
