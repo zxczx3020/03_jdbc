@@ -1,5 +1,6 @@
 package com.ohgiraffers.section02.dao;
 
+import com.ohgiraffers.section02.controller.MenuController;
 import com.ohgiraffers.section02.dto.MenuDTO;
 
 import java.io.FileInputStream;
@@ -110,6 +111,30 @@ public class MenuDAO {
         }
         return result;
 
+
+    }
+    public int updateMenu(Connection con, MenuDTO menuDTO, String menuName) {
+        PreparedStatement pstmt = null;
+        int result = 0;
+
+        String query = prop.getProperty("updateMenu");
+        try {
+
+            pstmt = con.prepareStatement(query);
+
+            pstmt.setString(1, menuDTO.getName());
+            pstmt.setInt(2, menuDTO.getPrice());
+            pstmt.setInt(3, menuDTO.getCategoryCode());
+            pstmt.setString(4, menuDTO.getStatus());
+            pstmt.setString(5, menuName);
+
+            result = pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }close(con);
+        close(pstmt);
+return result;
 
     }
 

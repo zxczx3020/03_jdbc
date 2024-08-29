@@ -32,12 +32,12 @@ public class MenuDTO {
         return status;
     }
 
-    public MenuDTO menuName(String name){
+    public MenuDTO Name(String name){
         this.name = name;
         return this;
     }
 
-    public MenuDTO price(int price){
+    public MenuDTO Price(int price){
         if(price<=0){
             System.out.println("음수가 입력됨...");
         }else{
@@ -45,13 +45,13 @@ public class MenuDTO {
         }
         return this;
     }
-    public MenuDTO categoryCode(int code){
+    public MenuDTO CategoryCode(int code){
         this.categoryCode = code;
         return this;
 
 
     }
-    public MenuDTO status(String status){
+    public MenuDTO Status(String status){
         if(status.equals("예") || status.equals("Y") || status.equals("y")){
             this.status = "Y";
         }else if (status.equals("아니오") || status.equals("N") || status.equals("n")){

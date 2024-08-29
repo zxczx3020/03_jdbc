@@ -15,6 +15,7 @@ public class Application {
             System.out.println("1. 가장 최신 메뉴 코드 조회");
             System.out.println("2. 모든 카테고리 목록 조회");
             System.out.println("3. 메뉴 등록");
+            System.out.println("4. 메뉴 업데이트");
             System.out.println("9. 프로그램 종료");
             int choice = scr.nextInt();
 
@@ -22,6 +23,7 @@ public class Application {
                 case 1 : menuController.findMaxCode(); break;
                 case 2 : menuController.findMenu(); break;
                 case 3 : menuController.insertMenu(); break;
+                case 4 : menuController.updateMenu(); break;
                 case 9 : break;
                 default :
                     System.out.println("잘못된 입력입니다.");

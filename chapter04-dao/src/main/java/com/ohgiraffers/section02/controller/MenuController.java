@@ -35,14 +35,14 @@ public class MenuController {
 
         MenuDTO menuDTO = new MenuDTO();
         System.out.println("메뉴 이름을 입력해주세요. ");
-        menuDTO.menuName(scr.nextLine());
+        menuDTO.Name(scr.nextLine());
         System.out.println("메뉴 가격을 입력해주세요. ");
-        menuDTO.price(scr.nextInt());
+        menuDTO.Price(scr.nextInt());
         System.out.println("카테고리 번호를 입력해주세요 : ");
-        menuDTO.categoryCode(scr.nextInt());
+        menuDTO.CategoryCode(scr.nextInt());
         System.out.println("판매 여부를 등록 해 주세요. ");
         scr.nextLine();
-        menuDTO.status(scr.nextLine());
+        menuDTO.Status(scr.nextLine());
 
         int result = menuDAO.insertMenu(getConnection2(), menuDTO);
         if(result >0){
@@ -53,6 +53,33 @@ public class MenuController {
 
 
 
+
+
+    }
+    public void updateMenu(){
+        Scanner scr  = new Scanner(System.in);
+
+        MenuDTO menuDTO = new MenuDTO();
+        System.out.println("업데이트할 메뉴명을 입력해주세요 : ");
+        String menuName = scr.nextLine();
+        System.out.println("바꿀 음식 이름을 입력해주세요 : ");
+        menuDTO.Name(scr.nextLine());
+        System.out.println("바꿀 음식의 가격을 입력해주세요 : ");
+        menuDTO.Price(scr.nextInt());
+        System.out.println("바꿀 음식의 카테고리 번호를 입력해주세요 : ");
+        menuDTO.CategoryCode(scr.nextInt());
+        System.out.println("바꿀 음식의 판매 여부를 입력해주세여 : ");
+        scr.nextLine();
+        menuDTO.Status(scr.nextLine());
+
+
+        int result = menuDAO.updateMenu(getConnection2(), menuDTO, menuName);
+
+        if(result >0){
+            System.out.println("메뉴 업데이트 완료");
+        }else{
+            System.out.println("메뉴 업데이트 실패");
+        }
 
 
     }
